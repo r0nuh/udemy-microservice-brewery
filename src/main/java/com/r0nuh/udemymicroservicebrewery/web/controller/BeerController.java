@@ -2,6 +2,8 @@ package com.r0nuh.udemymicroservicebrewery.web.controller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +37,7 @@ public class BeerController {
     }
 
     @PostMapping // create new beer
-    public ResponseEntity newBeer(@RequestBody BeerDTO beerDTO) {
+    public ResponseEntity newBeer(@Valid @RequestBody BeerDTO beerDTO) {
 
         BeerDTO savedDto = beerService.saveNewBeer(beerDTO);
 
@@ -47,7 +49,7 @@ public class BeerController {
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity handleUpdate(@PathVariable UUID beerId, @RequestBody BeerDTO beerDTO) {
+    public ResponseEntity handleUpdate(@PathVariable UUID beerId, @Valid @RequestBody BeerDTO beerDTO) {
 
         beerService.updateBeer(beerId, beerDTO);
 
