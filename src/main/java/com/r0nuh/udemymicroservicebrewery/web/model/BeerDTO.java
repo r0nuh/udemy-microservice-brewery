@@ -1,5 +1,6 @@
 package com.r0nuh.udemymicroservicebrewery.web.model;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
@@ -28,4 +29,7 @@ public class BeerDTO {
 
     @Positive
     private Long upc;
+
+    private OffsetDateTime createdDate;
+    private OffsetDateTime lastUpdateDate;
 }
